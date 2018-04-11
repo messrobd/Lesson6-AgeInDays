@@ -5,6 +5,11 @@ function dateConstructor(year, month, day) {
     get: function() {return year;}, //not sure what to return here
     set: function(newYear) {year = newYear;}
   })
+  Object.defineProperty(date, "isLeapYear", {
+    value: function() {
+      return this.year % 100 === 0 && this.year % 400 !== 0 ? false : this.year % 4 === 0;
+    }
+  })
   date.year = year;
   return date;
 }
