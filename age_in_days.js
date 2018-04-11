@@ -1,4 +1,17 @@
 function dateConstructor(year, month, day) {
+  var date = {};
+  Object.defineProperty(date, "year", {
+    enumerable: true,
+    get: function() {return year;}, //not sure what to return here
+    set: function(newYear) {year = newYear;}
+  })
+  date.year = year;
+  return date;
+}
+
+
+
+{
   var monthsInYear = 12;
   if (month > monthsInYear) {
     console.log("too many months in year");
